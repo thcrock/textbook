@@ -1,6 +1,12 @@
-# The Data 8 Jekyll textbook
+# The UChicago Data 8 Jekyll textbook
 
-This repository holds a Jekyll-based version of the Data 8 textbook.
+This repository holds UChicago's fork of the Data 8 Berkeley textbook.
+
+To date, there are no content changes, only changes to [_config.yml](_config.yml) to point to UChicago's Jupyterhub and to define the correct host. No deployment steps are needed as it is handled by Github Pages. 
+
+Everything below this line is from the original data8 textbook README.
+
+-------
 
 All textbook content is primarily stored in Jupyter notebooks in the `content/` folder.
 This can be converted to Jekyll-ready markdown and served on github pages.
