@@ -3,6 +3,7 @@ redirect_from:
   - "/chapters/01/3/plotting-the-classics"
 interact_link: content/chapters/01/3/Plotting_the_Classics.ipynb
 kernel_name: python3
+has_widgets: false
 title: 'Plotting the Classics'
 prev_page:
   url: /chapters/01/2/why-data-science
@@ -26,78 +27,126 @@ First, we read the text of both books into lists of chapters, called `huck_finn_
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 # Read two books, fast!
 
-huck_finn_url = 'https://www.inferentialthinking.com/data/huck_finn.txt'
+huck_finn_url = 'https://uchicagods.github.io/textbook/data/huck_finn.txt'
 huck_finn_text = read_url(huck_finn_url)
 huck_finn_chapters = huck_finn_text.split('CHAPTER ')[44:]
 
-little_women_url = 'https://www.inferentialthinking.com/data/little_women.txt'
+little_women_url = 'https://uchicagods.github.io/textbook/data/little_women.txt'
 little_women_text = read_url(little_women_url)
 little_women_chapters = little_women_text.split('CHAPTER ')[1:]
 ```
+</div>
+
+</div>
+
 
 
 While a computer cannot understand the text of a book, it can provide us with some insight into the structure of the text. The name `huck_finn_chapters` is currently bound to a list of all the chapters in the book. We can place them into a table to see how each chapter begins.
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 # Display the chapters of Huckleberry Finn in a table.
 
-Table().with_column('Chapters', huck_finn_chapters)
+pd.DataFrame(
+    {
+        'Chapters': huck_finn_chapters,
+    },
+    pd.RangeIndex(1, 44),
+)
 ```
+</div>
 
-
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
 
 
 <div markdown="0" class="output output_html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>Chapters</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>I. YOU don't know about me without you have read a book  ...</td>
-        </tr>
-        <tr>
-            <td>II. WE went tiptoeing along a path amongst the trees bac ...</td>
-        </tr>
-        <tr>
-            <td>III. WELL, I got a good going-over in the morning from o ...</td>
-        </tr>
-        <tr>
-            <td>IV. WELL, three or four months run along, and it was wel ...</td>
-        </tr>
-        <tr>
-            <td>V. I had shut the door to. Then I turned around and ther ...</td>
-        </tr>
-        <tr>
-            <td>VI. WELL, pretty soon the old man was up and around agai ...</td>
-        </tr>
-        <tr>
-            <td>VII. "GIT up! What you 'bout?" I opened my eyes and look ...</td>
-        </tr>
-        <tr>
-            <td>VIII. THE sun was up so high when I waked that I judged  ...</td>
-        </tr>
-        <tr>
-            <td>IX. I wanted to go and look at a place right about the m ...</td>
-        </tr>
-        <tr>
-            <td>X. AFTER breakfast I wanted to talk about the dead man a ...</td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Chapters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>I. YOU don't know about me without you have re...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>II. WE went tiptoeing along a path amongst the...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>III. WELL, I got a good going-over in the morn...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>IV. WELL, three or four months run along, and ...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>V. I had shut the door to. Then I turned aroun...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>XXXIX. IN the morning we went up to the villag...</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>XL. WE was feeling pretty good after breakfast...</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>XLI. THE doctor was an old man; a very nice, k...</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>XLII. THE old man was uptown again before brea...</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>THE LAST THE first time I catched Tom private ...</td>
+    </tr>
+  </tbody>
 </table>
-<p>... (33 rows omitted)</p>
+</div>
+</div>
+
+
+</div>
+</div>
 </div>
 
 
 
 Each chapter begins with a chapter number in Roman numerals, followed by the first sentence of the chapter. Project Gutenberg has printed the first word of each chapter in upper case. 
+
