@@ -3,6 +3,7 @@ redirect_from:
   - "/chapters/01/3/2/another-kind-of-character"
 interact_link: content/chapters/01/3/2/Another_Kind_Of_Character.ipynb
 kernel_name: python3
+has_widgets: false
 title: 'Another Kind of Character'
 prev_page:
   url: /chapters/01/3/1/Literary_Characters
@@ -18,7 +19,6 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 
-
 # Another Kind of Character
 
 In some situations, the relationships between quantities allow us to make predictions. This text will explore how to make accurate predictions based on incomplete information and develop methods for combining multiple sources of uncertain information to make decisions.
@@ -27,77 +27,148 @@ As an example of visualizing information derived from multiple sources, let us f
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 # In each chapter, count the number of all characters;
 # call this the "length" of the chapter.
 # Also count the number of periods.
 
-chars_periods_huck_finn = Table().with_columns([
-        'Huck Finn Chapter Length', [len(s) for s in huck_finn_chapters],
-        'Number of Periods', np.char.count(huck_finn_chapters, '.')
-    ])
-chars_periods_little_women = Table().with_columns([
-        'Little Women Chapter Length', [len(s) for s in little_women_chapters],
-        'Number of Periods', np.char.count(little_women_chapters, '.')
-    ])
+def NaturalIndex(sequence, **kwargs):
+    """Construct a Pandas RangeIndex appropriate to the given sequence."""
+    return pd.RangeIndex(1, len(sequence) + 1, **kwargs)
+
+
+chars_periods_huck_finn = pd.DataFrame(
+    {
+        'Chapter Length': [len(chapter) for chapter in huck_finn_chapters],
+        'Number of Periods': [chapter.count('.') for chapter in huck_finn_chapters],
+    },
+    NaturalIndex(huck_finn_chapters, name='Huck Finn Chapter'),
+)
+
+chars_periods_little_women = pd.DataFrame(
+    {
+        'Chapter Length': [len(chapter) for chapter in little_women_chapters],
+        'Number of Periods': [chapter.count('.') for chapter in little_women_chapters],
+    },
+    NaturalIndex(little_women_chapters, name='Little Women Chapter'),
+)
 ```
+</div>
+
+</div>
+
 
 
 Here are the data for *Huckleberry Finn*. Each row of the table corresponds to one chapter of the novel and displays the number of characters as well as the number of periods in the chapter. Not surprisingly, chapters with fewer characters also tend to have fewer periods, in general: the shorter the chapter, the fewer sentences there tend to be, and vice versa. The relation is not entirely predictable, however, as sentences are of varying lengths and can involve other punctuation such as question marks. 
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 chars_periods_huck_finn
 ```
+</div>
 
-
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
 
 
 <div markdown="0" class="output output_html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>Huck Finn Chapter Length</th> <th>Number of Periods</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>7026                    </td> <td>66               </td>
-        </tr>
-        <tr>
-            <td>11982                   </td> <td>117              </td>
-        </tr>
-        <tr>
-            <td>8529                    </td> <td>72               </td>
-        </tr>
-        <tr>
-            <td>6799                    </td> <td>84               </td>
-        </tr>
-        <tr>
-            <td>8166                    </td> <td>91               </td>
-        </tr>
-        <tr>
-            <td>14550                   </td> <td>125              </td>
-        </tr>
-        <tr>
-            <td>13218                   </td> <td>127              </td>
-        </tr>
-        <tr>
-            <td>22208                   </td> <td>249              </td>
-        </tr>
-        <tr>
-            <td>8081                    </td> <td>71               </td>
-        </tr>
-        <tr>
-            <td>7036                    </td> <td>70               </td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Chapter Length</th>
+      <th>Number of Periods</th>
+    </tr>
+    <tr>
+      <th>Huck Finn Chapter</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>7088</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12113</td>
+      <td>117</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8612</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6892</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>8269</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>10962</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>11632</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>13545</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>15901</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>21880</td>
+      <td>228</td>
+    </tr>
+  </tbody>
 </table>
-<p>... (33 rows omitted)</p>
+</div>
+</div>
+
+
+</div>
+</div>
 </div>
 
 
@@ -106,56 +177,110 @@ Here are the corresponding data for *Little Women*.
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 chars_periods_little_women
 ```
+</div>
 
-
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
 
 
 <div markdown="0" class="output output_html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>Little Women Chapter Length</th> <th>Number of Periods</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>21759                      </td> <td>189              </td>
-        </tr>
-        <tr>
-            <td>22148                      </td> <td>188              </td>
-        </tr>
-        <tr>
-            <td>20558                      </td> <td>231              </td>
-        </tr>
-        <tr>
-            <td>25526                      </td> <td>195              </td>
-        </tr>
-        <tr>
-            <td>23395                      </td> <td>255              </td>
-        </tr>
-        <tr>
-            <td>14622                      </td> <td>140              </td>
-        </tr>
-        <tr>
-            <td>14431                      </td> <td>131              </td>
-        </tr>
-        <tr>
-            <td>22476                      </td> <td>214              </td>
-        </tr>
-        <tr>
-            <td>33767                      </td> <td>337              </td>
-        </tr>
-        <tr>
-            <td>18508                      </td> <td>185              </td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Chapter Length</th>
+      <th>Number of Periods</th>
+    </tr>
+    <tr>
+      <th>Little Women Chapter</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>21952</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22384</td>
+      <td>188</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20815</td>
+      <td>231</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>25689</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>23657</td>
+      <td>255</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>33481</td>
+      <td>305</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>10383</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>12646</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>27691</td>
+      <td>234</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>41377</td>
+      <td>392</td>
+    </tr>
+  </tbody>
 </table>
-<p>... (37 rows omitted)</p>
+</div>
+</div>
+
+
+</div>
+</div>
 </div>
 
 
@@ -166,28 +291,47 @@ In the plot below, there is a dot for each chapter in each book. Blue dots corre
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
-plots.figure(figsize=(6, 6))
-plots.scatter(chars_periods_huck_finn.column(1), 
-              chars_periods_huck_finn.column(0), 
-              color='darkblue')
-plots.scatter(chars_periods_little_women.column(1), 
-              chars_periods_little_women.column(0), 
-              color='gold')
-plots.xlabel('Number of periods in chapter')
-plots.ylabel('Number of characters in chapter');
+chars_periods_plot = chars_periods_huck_finn.plot.scatter(
+    x='Number of Periods',
+    y='Chapter Length',
+    color='darkblue',
+    label='Huck Finn',
+    figsize=(8, 8),
+)
+
+chars_periods_little_women.plot.scatter(
+    x='Number of Periods',
+    y='Chapter Length',
+    color='gold',
+    label='Little Women',
+    ax=chars_periods_plot,
+)
+
+chars_periods_plot.set_xlabel('Number of periods in chapter')
+chars_periods_plot.set_ylabel('Number of characters in chapter');
 ```
+</div>
 
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
-
-{:.output .output_png}
+{:.output_png}
 ![png](../../../../images/chapters/01/3/2/Another_Kind_Of_Character_9_0.png)
+
+</div>
+</div>
+</div>
 
 
 
 The plot shows us that many but not all of the chapters of *Little Women* are longer than those of *Huckleberry Finn*, as we had observed by just looking at the numbers. But it also shows us something more. Notice how the blue points are roughly clustered around a straight line, as are the yellow points. Moreover, it looks as though both colors of points might be clustered around the *same* straight line.
 
+
+
 Now look at all the chapters that contain about 100 periods. The plot shows that those chapters contain about 10,000 characters to about 15,000 characters, roughly. That's about 100 to 150 characters per period.
 
 Indeed, it appears from looking at the plot that on average both books tend to have somewhere between 100 and 150 characters between periods, as a very rough estimate. Perhaps these two great 19th century novels were signaling something so very familiar to us now: the 140-character limit of Twitter.
+
