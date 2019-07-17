@@ -35,7 +35,7 @@ As an example of visualizing information derived from multiple sources, let us f
 # Also count the number of periods.
 
 def NaturalIndex(sequence, **kwargs):
-    """Construct a Pandas RangeIndex appropriate to the given sequence."""
+    """Construct a Pandas Index, starting with 1, and sized for the given sequence."""
     return pd.RangeIndex(1, len(sequence) + 1, **kwargs)
 
 
