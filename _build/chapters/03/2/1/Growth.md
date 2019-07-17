@@ -3,6 +3,7 @@ redirect_from:
   - "/chapters/03/2/1/growth"
 interact_link: content/chapters/03/2/1/Growth.ipynb
 kernel_name: python3
+has_widgets: false
 title: 'Example: Growth Rates'
 prev_page:
   url: /chapters/03/2/Names
