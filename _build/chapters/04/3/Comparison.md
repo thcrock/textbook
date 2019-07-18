@@ -3,6 +3,7 @@ redirect_from:
   - "/chapters/04/3/comparison"
 interact_link: content/chapters/04/3/Comparison.ipynb
 kernel_name: python3
+has_widgets: false
 title: 'Comparisons'
 prev_page:
   url: /chapters/04/2/1/String_Methods

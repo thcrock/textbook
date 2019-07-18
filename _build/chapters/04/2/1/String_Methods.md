@@ -3,6 +3,7 @@ redirect_from:
   - "/chapters/04/2/1/string-methods"
 interact_link: content/chapters/04/2/1/String_Methods.ipynb
 kernel_name: python3
+has_widgets: false
 title: 'String Methods'
 prev_page:
   url: /chapters/04/2/Strings
