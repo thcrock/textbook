@@ -9,10 +9,11 @@ prev_page:
   url: /chapters/03/2/1/Growth
   title: 'Example: Growth Rates'
 next_page:
-  url: /chapters/03/4/Introduction_to_Tables
-  title: 'Introduction to Tables'
+  url: /chapters/03/4/Introduction_to_DataFrames
+  title: 'Introduction to DataFrames'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
+
 
 # Call Expressions
 
@@ -20,55 +21,72 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 abs(-12)
 ```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
 
-
-
-
-{:.output .output_data_text}
+{:.output_data_text}
 ```
 12
 ```
 
 
+</div>
+</div>
+</div>
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 round(5 - 1.3)
 ```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
 
-
-
-
-{:.output .output_data_text}
+{:.output_data_text}
 ```
 4
 ```
 
 
+</div>
+</div>
+</div>
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 max(2, 2 + 3, 4)
 ```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
 
-
-
-
-{:.output .output_data_text}
+{:.output_data_text}
 ```
 5
 ```
+
+
+</div>
+</div>
+</div>
 
 
 
@@ -78,21 +96,28 @@ A few functions are available by default, such as `abs` and `round`, but most fu
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 import math
 import operator
 math.sqrt(operator.add(4, 5))
 ```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
 
-
-
-
-{:.output .output_data_text}
+{:.output_data_text}
 ```
 3.0
 ```
+
+
+</div>
+</div>
+</div>
 
 
 
@@ -100,19 +125,26 @@ An equivalent expression could be expressed using the `+` and `**` operators ins
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 (4 + 5) ** 0.5
 ```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
 
-
-
-
-{:.output .output_data_text}
+{:.output_data_text}
 ```
 3.0
 ```
+
+
+</div>
+</div>
+</div>
 
 
 
@@ -120,21 +152,28 @@ Operators and call expressions can be used together in an expression. The *perce
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 florida = 2.72
 iowa = 16.25
 100*abs(florida-iowa)/((florida+iowa)/2)
 ```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
 
-
-
-
-{:.output .output_data_text}
+{:.output_data_text}
 ```
 142.6462836056932
 ```
+
+
+</div>
+</div>
+</div>
 
 
 
@@ -142,10 +181,15 @@ Learning how different functions behave is an important part of learning a progr
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 math.log?
 ```
+</div>
+
+</div>
+
 
 
     log(x[, base])
@@ -153,42 +197,57 @@ math.log?
     Return the logarithm of x to the given base.
     If the base not specified, returns the natural logarithm (base e) of x.
 
+
+
 The square brackets in the example call indicate that an argument is optional. That is, `log` can be called with either one or two arguments.
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 math.log(16, 2)
 ```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
 
-
-
-
-{:.output .output_data_text}
+{:.output_data_text}
 ```
 4.0
 ```
 
 
+</div>
+</div>
+</div>
 
 
 
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```python
 math.log(16)/math.log(2)
 ```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
 
-
-
-
-{:.output .output_data_text}
+{:.output_data_text}
 ```
 4.0
 ```
+
+
+</div>
+</div>
+</div>
 
 
 
 The list of [Python's built-in functions](https://docs.python.org/3/library/functions.html) is quite long and includes many functions that are never needed in data science applications. The list of [mathematical functions in the `math` module](https://docs.python.org/3/library/math.html) is similarly long. This text will introduce the most important functions in context, rather than expecting the reader to memorize or understand these lists.
+

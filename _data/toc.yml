@@ -66,8 +66,8 @@
       url: /chapters/03/2/1/Growth
   - title: Call Expressions
     url: /chapters/03/3/Calls
-  - title: Introduction to Tables
-    url: /chapters/03/4/Introduction_to_Tables
+  - title: Introduction to DataFrames
+    url: /chapters/03/4/Introduction_to_DataFrames
 
 - title: Data Types
   url: /chapters/04/Data_Types
