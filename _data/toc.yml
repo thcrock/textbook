@@ -92,8 +92,8 @@
   - title: More on Arrays
     url: /chapters/05/3/More_on_Arrays
 
-- title: Tables
-  url: /chapters/06/Tables
+- title: DataFrames
+  url: /chapters/06/DataFrames
   sections:
   - title: Sorting Rows
     url: /chapters/06/1/Sorting_Rows
