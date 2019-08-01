@@ -26,23 +26,23 @@ Chapters following 6 remain to be rebuilt as well.
 
 See below for the changelog of work performed to date to rebuild and adapt this textbook:
 
-  f3bd408 regenerated Gemfile.lock
-  6b85083 Pandas rewrite and rebuild of chapter 6.2: Selecting Rows
-  6597b49 Pandas rewrite and rebuild of chapter 6.1: Sorting Rows
-  c2946d1 Pandas rewrite and rebuild of chapter 6 introduction as "DataFrames"
-  1992a43 rebuild of chapter 04
-  6032aeb Pandas rewrite and rebuild of chapter 3.4 as Introduction to DataFrames
-  2eccab4 rebuild for chapter 3.3: Calls
-  bbb7ede rebuild for chapter 3.2.1: Growth
-  23f87e1 rebuild for chapter 3.2: Names
-  4c540f1 rebuild for chapter 3.1: Expressions
-  4da536f tweaked docstring in example in chapter 1.3.2
-  8e89b4f Pandas rewrite and rebuild for chapter 1.3.2: Another Kind of Character
-  c29098e Pandas rewrite and rebuild for chapter 1.3.1: Literary Characters
-  ae8eb1b build of chapter 1.3 introduction: Plotting the Classics
-  f433d5a Pandas rewrite for chapter 1.3 introduction: Plotting the Classics
-  1a52374 update base template jekyllmd.tpl to support jupyter-book updates
-  3daee41 fixed Makefile help errors
+    f3bd408 regenerated Gemfile.lock
+    6b85083 Pandas rewrite and rebuild of chapter 6.2: Selecting Rows
+    6597b49 Pandas rewrite and rebuild of chapter 6.1: Sorting Rows
+    c2946d1 Pandas rewrite and rebuild of chapter 6 introduction as "DataFrames"
+    1992a43 rebuild of chapter 04
+    6032aeb Pandas rewrite and rebuild of chapter 3.4 as Introduction to DataFrames
+    2eccab4 rebuild for chapter 3.3: Calls
+    bbb7ede rebuild for chapter 3.2.1: Growth
+    23f87e1 rebuild for chapter 3.2: Names
+    4c540f1 rebuild for chapter 3.1: Expressions
+    4da536f tweaked docstring in example in chapter 1.3.2
+    8e89b4f Pandas rewrite and rebuild for chapter 1.3.2: Another Kind of Character
+    c29098e Pandas rewrite and rebuild for chapter 1.3.1: Literary Characters
+    ae8eb1b build of chapter 1.3 introduction: Plotting the Classics
+    f433d5a Pandas rewrite for chapter 1.3 introduction: Plotting the Classics
+    1a52374 update base template jekyllmd.tpl to support jupyter-book updates
+    3daee41 fixed Makefile help errors
 
 ### Process outline
 
@@ -62,37 +62,37 @@ Following the general procedure:
 1. To update an (interactive) textbook page, update its Jupyter notebook under the `content/` directory
 1. To generate the plain-text (Markdown) format of this page from that notebook: `jupyter-book build .`
 1. Optional: preview the published content locally (see below)
-1. Commit changes under directories `content/` and in `_build/`
+1. Commit changes under directories `content/` and `_build/`
 
 Files changed typically include at least a Markdown (`.md`) file; and, if this page is interactive and backed by a Jupyter notebook, then a notebook (`.ipynb`) file as well. Builds of notebooks containing graphs may also generate images, such as `.png` files.
 
 If you push to a branch for which Github pages is configured, (typically `gh-pages`), then the live Web site will update promptly.
 
-#### Previewing published output via Docker container
+#### Previewing published output locally via Docker container
 
 ##### One-time set-up
 
 Retrieve the Docker image:
 
-  docker pull emdupre/jupyter-book
+    docker pull emdupre/jupyter-book
 
 Optionally, create a Web server script (say, `serve`):
 
-  #!/bin/sh
-  SCRIPT="$(readlink -f "$0")"
-  REPO="$(dirname "$SCRIPT")"
-  
-  docker run --rm --security-opt label:disable  \
-     -v "$REPO":/srv/jekyll \
-     -p 4000:4000 \
-     -it -u 1000:1000 \
-     emdupre/jupyter-book bundle exec jekyll serve --host 0.0.0.0
+    #!/bin/sh
+    SCRIPT="$(readlink -f "$0")"
+    REPO="$(dirname "$SCRIPT")"
+    
+    docker run --rm --security-opt label:disable  \
+       -v "$REPO":/srv/jekyll \
+       -p 4000:4000 \
+       -it -u 1000:1000 \
+       emdupre/jupyter-book bundle exec jekyll serve --host 0.0.0.0
 
 ##### Running the server
 
 Run the script:
 
-  ./serve
+    ./serve
 
 or the underlying `docker run` command (above).
 
@@ -100,6 +100,7 @@ A preview of the published content is then available at `http://0.0.0.0:4000/tex
 
 [See also](https://jupyter.org/jupyter-book/guide/03_build.html#building-your-site-locally-with-containers-docker)
 
+-------
 
 Everything below this line is from the original data8 textbook README.
 
